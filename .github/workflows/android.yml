@@ -5,7 +5,6 @@ name: Android
 # spell-checker:ignore (misc) swiftshader playstore DATALOSS noaudio
 
 on:
-  pull_request:
   push:
     branches:
       - '*'

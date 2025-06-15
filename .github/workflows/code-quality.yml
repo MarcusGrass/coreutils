@@ -4,7 +4,6 @@ name: Code Quality
 # spell-checker:ignore (misc) TERMUX noaudio pkill swiftshader esac sccache pcoreutils shopt subshell dequote
 
 on:
-  pull_request:
   push:
     branches:
       - '*'

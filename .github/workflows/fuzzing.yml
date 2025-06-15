@@ -3,7 +3,6 @@ name: Fuzzing
 # spell-checker:ignore fuzzer dtolnay Swatinem
 
 on:
-  pull_request:
   push:
     branches:
       - '*'
