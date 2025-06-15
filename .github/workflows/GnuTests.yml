@@ -41,7 +41,7 @@ jobs:
       shell: bash
       run: |
         apt-get update
-        apt-get install -y curl
+        apt-get install -y curl sudo
     - name: Initialize workflow variables
       id: vars
       shell: bash
