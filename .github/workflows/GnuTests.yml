@@ -41,7 +41,7 @@ jobs:
       shell: bash
       run: |
         apt-get update
-        apt-get install -y curl sudo kmod git locales build-essential libclang-18-dev
+        apt-get install -y curl sudo kmod git locales build-essential libclang-18-dev wget gperf tar perl xz-utils texinfo gzip
     - name: Initialize workflow variables
       id: vars
       shell: bash
