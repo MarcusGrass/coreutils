@@ -41,7 +41,7 @@ jobs:
       shell: bash
       run: |
         apt-get update
-        apt-get install -y curl sudo kmod
+        apt-get install -y curl sudo kmod qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
     - name: Initialize workflow variables
       id: vars
       shell: bash
