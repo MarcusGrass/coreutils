@@ -190,6 +190,7 @@ jobs:
         chown -R gnutest:gnutest .
         chown -R gnutest:gnutest '${{ steps.vars.outputs.path_UUTILS }}'
         chown -R gnutest:gnutest '${{ steps.vars.outputs.path_GNU }}'
+        git config --global --add safe.directory '*'
 
     - name: Build binaries
       shell: bash
