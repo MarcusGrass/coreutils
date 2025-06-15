@@ -183,10 +183,18 @@ jobs:
 #      run: |
 #        rsync -a -e ssh . lima-default:~/work/
 
+    - name: Add test runner user
+      shell: bash
+      run: |
+        addgroup gnutest 
+        adduser gnutest -g gnutest
+        chown -R . gnutest:gnutest
+
     - name: Build binaries
       shell: bash
       run: |
         ## Build binaries
+        su gnutest
         cd '${{ steps.vars.outputs.path_UUTILS }}'
         bash util/build-gnu.sh --release-build
 
@@ -244,6 +252,7 @@ jobs:
       shell: bash
       run: |
         ## Run GNU tests
+        su gnutest
         path_GNU='${{ steps.vars.outputs.path_GNU }}'
         path_UUTILS='${{ steps.vars.outputs.path_UUTILS }}'
         bash "${path_UUTILS}/util/run-gnu-test.sh"
@@ -251,6 +260,7 @@ jobs:
     - name: Extract testing info from individual logs into JSON
       shell: bash
       run : |
+        su gnutest
         path_UUTILS='${{ steps.vars.outputs.path_UUTILS }}'
         python ${path_UUTILS}/util/gnu-json-result.py ${{ steps.vars.outputs.path_GNU_tests }} > ${{ steps.vars.outputs.TEST_FULL_SUMMARY_FILE }}
 
@@ -265,6 +275,7 @@ jobs:
     - name: Extract testing info from individual logs (run as root) into JSON
       shell: bash
       run : |
+        su gnutest
         path_UUTILS='${{ steps.vars.outputs.path_UUTILS }}'
         python ${path_UUTILS}/util/gnu-json-result.py ${{ steps.vars.outputs.path_GNU_tests }} > ${{ steps.vars.outputs.TEST_ROOT_FULL_SUMMARY_FILE }}
 
