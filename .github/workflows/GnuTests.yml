@@ -189,6 +189,8 @@ jobs:
         addgroup gnutest 
         adduser gnutest gnutest
         chown -R . gnutest:gnutest
+        chown -R '${{ steps.vars.outputs.path_UUTILS }}' gnutest:gnutest
+        chown -R '${{ steps.vars.outputs.path_GNU }}' gnutest:gnutest
 
     - name: Build binaries
       shell: bash
