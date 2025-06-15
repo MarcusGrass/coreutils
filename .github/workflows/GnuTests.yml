@@ -186,8 +186,7 @@ jobs:
     - name: Add test runner user
       shell: bash
       run: |
-        addgroup gnutest 
-        adduser gnutest gnutest
+        useradd -U gnutest
         chown -R . gnutest:gnutest
         chown -R '${{ steps.vars.outputs.path_UUTILS }}' gnutest:gnutest
         chown -R '${{ steps.vars.outputs.path_GNU }}' gnutest:gnutest
