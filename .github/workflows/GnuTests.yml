@@ -37,6 +37,11 @@ jobs:
     container:
       image: ubuntu:24.04
     steps:
+    - name: prepare runner
+      shell: bash
+      run: |
+        apt-get update
+        apt-get install -y curl
     - name: Initialize workflow variables
       id: vars
       shell: bash
