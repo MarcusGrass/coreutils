@@ -34,6 +34,8 @@ jobs:
       pull-requests: read  # for dawidd6/action-download-artifact to query commit hash
     name: Run GNU tests
     runs-on: ubuntu-24.04
+    container:
+      image: ubuntu:24.04
     steps:
     - name: Initialize workflow variables
       id: vars
