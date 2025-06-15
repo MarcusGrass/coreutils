@@ -196,9 +196,7 @@ jobs:
       shell: bash
       run: |
         ## Build binaries
-        su gnutest
-        cd '${{ steps.vars.outputs.path_UUTILS }}'
-        bash util/build-gnu.sh --release-build
+        su gnutest -c 'cd "${{ steps.vars.outputs.path_UUTILS }}" && bash util/build-gnu.sh --release-build'
 
 #    - name: Selinux - Generate selinux tests list
 #      run: |
