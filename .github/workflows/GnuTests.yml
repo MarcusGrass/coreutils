@@ -41,7 +41,7 @@ jobs:
       shell: bash
       run: |
         apt-get update
-        apt-get install -y curl sudo kmod git locales
+        apt-get install -y curl sudo kmod git locales build-essential
     - name: Initialize workflow variables
       id: vars
       shell: bash
