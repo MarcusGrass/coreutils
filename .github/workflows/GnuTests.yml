@@ -187,9 +187,9 @@ jobs:
       shell: bash
       run: |
         useradd -U gnutest
-        chown -R . gnutest:gnutest
-        chown -R '${{ steps.vars.outputs.path_UUTILS }}' gnutest:gnutest
-        chown -R '${{ steps.vars.outputs.path_GNU }}' gnutest:gnutest
+        chown -R gnutest:gnutest .
+        chown -R gnutest:gnutest '${{ steps.vars.outputs.path_UUTILS }}'
+        chown -R gnutest:gnutest '${{ steps.vars.outputs.path_GNU }}'
 
     - name: Build binaries
       shell: bash
